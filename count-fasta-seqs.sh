@@ -97,13 +97,21 @@ echo "$@"
 #Create list with all fasta files
 ls *.fasta > LIST
 
-# within for loop
-grep ">" $i | wc -l | echo 
-
-
 #Beginning for loop
 for i in LIST
 	do
-		grep ">" $i | wc -l 
+		grep ">" $i | wc -l | echo
 		echo $i
 	done
+
+
+#Alternative while loop
+while read i
+do
+	grep ">" $i | wc -l | echo
+	echo $i
+
+done < LIST
+
+rm LIST
+
