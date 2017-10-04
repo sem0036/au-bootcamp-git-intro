@@ -95,23 +95,24 @@ echo "$@"
 # ADD YOUR CODE BELOW:
 
 #Create list with all fasta files
-ls *.fasta > LIST
+LIST=${ls *.fasta}
 
 #Beginning for loop
-for i in LIST
+for i in "${LIST[@]}"
 	do
-		grep ">" $i | wc -l | echo
-		echo $i
+		#grep ">" $i | wc -l
+		echo "$i"
 	done
 
+###### Alternative while loop DRAFT #####
+#ls *.fasta > LIST
 
-#Alternative while loop
-while read i
-do
-	grep ">" $i | wc -l | echo
-	echo $i
+#while read i
+#do
+#	grep ">" $i | wc -l | echo
+#	echo $i
 
-done < LIST
+#done < LIST
 
-rm LIST
+#rm LIST
 
