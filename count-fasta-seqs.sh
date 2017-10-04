@@ -97,8 +97,15 @@ echo "$@"
 #Create list with all fasta files
 ls *.fasta > LIST
 
+#for loop to obtain number of sequences 
 for i in LIST
 	do
 		grep ">" $i | wc -l 
 		echo $i
 	done
+
+#Add total number of sequences
+expr $i + $i
+
+#remove LIST file 
+
