@@ -97,8 +97,14 @@ echo "$@"
 #Create list with all fasta files
 ls *.fasta > LIST
 
-for i in $LIST
+#Create a variable to hold the command that will list all the files in the directory LIST
+Fasta=($(cat LIST))
+echo ${Fasta[@]}
+
+for i in $FASTA
 	do
-		grep ">" $i | wc -l 
-		echo $i
+		name=`grep '>' $i`
+		sequence=`grep '>' $i` 
+		total=`echo $sequence | wc -m`
+		echo $total
 	done
