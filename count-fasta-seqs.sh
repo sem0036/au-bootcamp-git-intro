@@ -99,3 +99,8 @@ ls *.fasta > LIST
 
 Fasta=($(cat LIST))
 echo ${Fasta[@]}
+for i in LIST
+	do
+		grep ">" $i | wc -l 
+		echo $i
+	done
