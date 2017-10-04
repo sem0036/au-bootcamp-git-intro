@@ -97,12 +97,23 @@ echo "$@"
 #Create list with all fasta files
 LIST=${ls *.fasta}
 
+#for loop to obtain number of sequences (SHOULD BE ABLE TO SKIP CREATING LIST AND JUST DO THE ARRAY AS ONE STEP)
+Fasta=($(cat LIST))
+echo ${Fasta[@]}
+
+for i in $Fasta
 #Beginning for loop
 for i in "${LIST[@]}"
 	do
 		#grep ">" $i | wc -l
 		echo "$i"
 	done
+
+#Add total number of sequences
+expr $i + $i
+
+#remove LIST file 
+rm LIST
 
 ###### Alternative while loop DRAFT #####
 #ls *.fasta > LIST
