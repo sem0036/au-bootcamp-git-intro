@@ -97,3 +97,9 @@ echo "$@"
 #Create list with all fasta files
 ls *.fasta > LIST
 
+
+
+# within for loop
+grep ">" $i | wc -l | echo 
+
+
