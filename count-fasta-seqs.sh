@@ -97,3 +97,5 @@ echo "$@"
 #Create list with all fasta files
 ls *.fasta > LIST
 
+Fasta=($(cat LIST))
+echo ${Fasta[@]}
