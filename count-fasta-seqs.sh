@@ -107,4 +107,25 @@ for i in $FASTA
 		sequence=`grep '>' $i` 
 		total=`echo $sequence | wc -m`
 		echo $total
+Fasta=($(cat LIST))
+echo ${Fasta[@]}
+
+for i in $Fasta
+#Beginning for loop
+for i in LIST
+	do
+		grep ">" $i | wc -l | echo
+		echo $i
 	done
+
+
+#Alternative while loop
+while read i
+do
+	grep ">" $i | wc -l | echo
+	echo $i
+
+done < LIST
+
+rm LIST
+
