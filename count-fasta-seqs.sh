@@ -94,12 +94,6 @@ echo "$@"
 #
 # ADD YOUR CODE BELOW:
 
-
-
-for var $*.fasta
-
-do
-
-done
-
+#Create list with all fasta files
+ls *.fasta > LIST
 
