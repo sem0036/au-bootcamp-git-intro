@@ -94,3 +94,12 @@ echo "$@"
 #
 # ADD YOUR CODE BELOW:
 
+
+
+for var $*.fasta
+
+do
+
+done
+
+
