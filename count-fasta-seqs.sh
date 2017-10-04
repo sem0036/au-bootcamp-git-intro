@@ -98,9 +98,14 @@ echo "$@"
 ls *.fasta > LIST
 
 #for loop to obtain number of sequences 
+Fasta=($(cat LIST))
+echo ${Fasta[@]}
+
+for i in $Fasta
+#Beginning for loop
 for i in LIST
 	do
-		grep ">" $i | wc -l 
+		grep ">" $i | wc -l | echo
 		echo $i
 	done
 
@@ -108,4 +113,14 @@ for i in LIST
 expr $i + $i
 
 #remove LIST file 
+
+#Alternative while loop
+while read i
+do
+	grep ">" $i | wc -l | echo
+	echo $i
+
+done < LIST
+
+rm LIST
 
