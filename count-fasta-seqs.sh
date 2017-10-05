@@ -98,17 +98,16 @@ echo "$@"
 ls *.fasta > LIST
 
 Fasta=($(cat LIST))
-echo ${Fasta[@]}
+#echo ${Fasta[@]}
 
-for i in $Fasta
-#Beginning for loop
-for i in LIST
+for i in 1 2
 	do
-		grep ">" $i | wc -l | echo
-		echo $i
+		SeqName=$( echo $Fasta)
+		X=$(grep ">"{Fasta[$i]} | wc -l)
+		echo "$X	$Fasta"
 	done
 
-
+exit
 #Alternative while loop
 while read i
 do
