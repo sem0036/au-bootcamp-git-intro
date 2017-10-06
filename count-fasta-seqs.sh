@@ -114,10 +114,6 @@ do
 	echo $sequence $FileName
 done
 
-#######Alternative while loop that can also be used
-#while read i
-#do
-#for i in $Fasta
 
 #Beginning for loop. i=0 to start on the first element of the array.
 for i in $Fasta
@@ -130,5 +126,3 @@ done
 SeqCount=`$(grep '>' ${Fasta[@]} |wc -l)`
 echo $SeqCount
 
-#Adad total number of sequences together using the command expr
-total=$(expr $i + $i)
