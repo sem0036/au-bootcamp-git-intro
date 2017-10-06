@@ -95,51 +95,29 @@ echo "$@"
 # ADD YOUR CODE BELOW:
 
 
-#Create a variable to hold the command that will list all the files in the directory LIST
-#############START
-#Create variable with all fasta files
-LIST=$(ls *.fasta)
-echo $LIST
+#!/bin/bash
 
-FASTACOUNT=$(ls *.fasta |wc -l)
-echo $FASTACOUNT
+count=0
 
-#for loop to obtain number of sequences (SHOULD BE ABLE TO SKIP CREATING LIST AND JUST DO THE ARRAY AS ONE STEP)
-Fasta=($(cat LIST))
-echo ${Fasta[@]}
+# start a for loop for all files specify as command argument
 
+for file in "$@"
 
-#######Alternative while loop that can also be used
-#while read i
-#do
-#for i in $Fasta
+do
 
-#Beginning for loop. i=0 to start on the first element of the array. 
-for ((i=0; i<$FASTACOUNT; i++))
-	do
-		NumSeq=$(grep ">" ${Fasta[$i]} | wc -l)
-		echo "$NumSeq ${Fasta[$i]}"
-	done
+#assign files' name to the variable filename
 
-SeqCount=$(grep ">" ${Fasta[@]} |wc -l)
-echo $SeqCount
+filename=$(basename $file)
 
-exit
-##### exit command will close the loop
+# separate sequences from sequences name and count the number of sequences
 
-#Add total number of sequences
-#expr $i + $i
+snake=$(grep '>' $file | wc -l)
 
+#print out sequences number and files name
 
-###### Alternative while loop DRAFT #####
-#ls *.fasta > LIST
+echo $snake $filename
 
-#while read i
-#do
-#	grep ">" $i | wc -l | echo
-#	echo $i
+done
 
-#done < LIST
-
-#rm LIST
+# print out the number of sequences
 
