@@ -99,25 +99,36 @@ echo "$@"
 
 count=0
 
-# start a for loop for all files specify as command argument
-
+#create loop
 for file in "$@"
 
 do
 
 #assign files' name to the variable filename
-
-filename=$(basename $file)
+	FileName=$(basename $file)
 
 # separate sequences from sequences name and count the number of sequences
-
-snake=$(grep '>' $file | wc -l)
+	sequence=$(grep '>' $file | wc -l)
 
 #print out sequences number and files name
-
-echo $snake $filename
-
+	echo $sequence $FileName
 done
 
-# print out the number of sequences
+#######Alternative while loop that can also be used
+#while read i
+#do
+#for i in $Fasta
 
+#Beginning for loop. i=0 to start on the first element of the array.
+for i in $Fasta
+do
+          	NumSeq=$(grep '>' ${Fasta[$i]} | wc -l)
+                echo "$NumSeq ${Fasta[$i]}"
+done
+
+#create a variable to hold to command that will search for the sequences and count how many are there sequences there are
+SeqCount=`$(grep '>' ${Fasta[@]} |wc -l)`
+echo $SeqCount
+
+#Adad total number of sequences together using the command expr
+total=$(expr $i + $i)
