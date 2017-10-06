@@ -101,21 +101,12 @@ ls *.fasta > LIST
 Fasta=($(cat LIST))
 echo ${Fasta[@]}
 
-for i in $FASTA
-	do
-		name=`grep '>' $i`
-		sequence=`grep '>' $i` 
-		total=`echo $sequence | wc -m`
-		echo $total
-Fasta=($(cat LIST))
-echo ${Fasta[@]}
-
-for i in $Fasta
 #Beginning for loop
-for i in LIST
+for i in $Fasta
 	do
-		grep ">" $i | wc -l | echo
-		echo $i
+		
+		x=`grep ">" $i | wc -l | echo`
+		echo $x
 	done
 
 
